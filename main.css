@@ -5,7 +5,15 @@ body {
 }
 
 
+
+
+
+
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,6 +76,7 @@ button:hover {
 }
 
 .about__sun-image {
+    position: absolute;
     width: 100px;
     height: 100px;
 }
@@ -172,7 +181,7 @@ footer {
     font-weight: 600;
 }
 
-.footer_container {
+.footer__container {
     display: flex;
     /* align-items: center; */
     justify-content: center;
@@ -202,3 +211,50 @@ footer {
     text-align: center;
     opacity: 0.5;
 }
+
+@media (max-width: 1024px) {
+    header,.about,.form, footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .about h1 {
+        font-size: 36px; 
+        line-height: 40px;
+    }
+    .about__image {
+        width: 280px;
+    }
+    .about__sun-image {
+        width: 75px;
+    }
+
+}
+@media (max-width: 720px) {
+  header,.about,.form, footer {
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+  .header__logo {
+    height: 20px;
+  }
+  .about {
+    flex-direction: column-reverse;
+  }
+  .footer__container {
+    flex-direction: column;
+  }
+  .about__image {
+    width: 280px;
+  }
+  .about__sun-image {
+    width: 75px;
+    height: 75px;
+
+  }
+  header h1,.about h1,.form h1, footer h1 {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+
