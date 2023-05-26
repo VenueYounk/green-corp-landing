@@ -6,13 +6,30 @@ body {
 
 
 
+::-webkit-scrollbar{
+    width: 10px;
+}
 
+::-webkit-scrollbar-track {
+    background: #e9e0dc; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #23a030; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #107b1c; 
+    -webkit-animation: background-color 1s ease-in;
+  }
 
 
 header {
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 10;
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -55,7 +72,16 @@ button:hover {
     transition: background-color 0.3s ease-in;
 }
 
+.orb-canvas {
+    position: absolute;
+    top: 0;
+    /* right: 0; */
+    height: 100%;
+    /* z-index: 0; */
+}
+
 .about {
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -68,15 +94,31 @@ button:hover {
 
 .about__info {
     max-width: 550px;
-    
+    z-index: 1;
+}
+
+.about__images {
+    z-index: 1;
 }
 
 .about__image {
     width: 500px;
+
 }
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 
 .about__sun-image {
     position: absolute;
+    animation: rotate 10s linear infinite;
     width: 100px;
     height: 100px;
 }
