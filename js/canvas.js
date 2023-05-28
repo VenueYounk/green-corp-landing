@@ -51,19 +51,23 @@ class Bubble {
 class CanvasBackground {
     constructor(id) {
         this.canvas = document.getElementById(id);
+        this.about = document.querySelector('.about')
         this.ctx = this.canvas.getContext("2d");
-        this.dpr = window.devicePixelRatio
+        this.dpr = window.devicePixelRatio || 1;
     }
 
     start() {
         this.canvasSize();
         this.generateBubbles();
         this.animate();
+        window.addEventListener('resize', () => {
+            this.canvasSize();
+            this.generateBubbles();});
     }
-
+    
     canvasSize() {
-        this.canvas.width = this.canvas.offsetWidth * this.dpr;
-        this.canvas.height = this.canvas.offsetHeight * this.dpr;
+        this.canvas.width = this.about.offsetWidth * this.dpr;
+        this.canvas.height = this.about.offsetHeight * this.dpr;
         this.ctx.scale(this.dpr, this.dpr);
     }
 
